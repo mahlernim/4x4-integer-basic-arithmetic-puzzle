@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<style>
+body, div, td {font-family:"Verdana";}
+table, td {border:0; margin:0; padding:0}
+.answer, .answer td {font-size: 20%}
+.separator {height: 5em}
+.num {width:5em; height:5em; border:solid 1px #AAA; vertical-align:top;}
+.ver, .hor {text-align:center; position:relative;}
+.ver span, .hor span {
+    position: relative;
+    z-index: 2;
+}
+.ver::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 50%;
+    border-top: 2em solid transparent;
+    border-bottom: 2em solid transparent;
+    border-left: 2em solid #DDD;
+    transform: translate(-50%, -50%);
+}
+.hor::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 50%;
+    border-left: 2em solid transparent;
+    border-right: 2em solid transparent;
+    border-top: 2em solid #DDD;
+    transform: translate(-50%, -50%);
+}
+.nil {width:2em; height:2em;}
+</style>
+<body>
+<div>{{ size }} x {{ size }} 퍼즐 안에 1부터 {{ size * size }}까지의 수를 한 번씩만 사용해서 채우시오.</div>
+{{ puzzle|safe }}
+<div class="separator"></div>
+<div><a href="/">다시 생성</a></div>
+</body>
+</html>
